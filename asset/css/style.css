@@ -40,7 +40,6 @@
 .nav-link:after {
   transition: width 0.5s ease, background-color 0.5s ease, left 0.5s ease;
 }
-
 .nav-link:hover:after {
   width: 100%;
   left: 0;
@@ -69,7 +68,17 @@
 .navbar.active .nav-link {
   color: #555;
 }
-
+.navbar.active .nav-link:after {
+  transition: width 0.5s ease, background-color 0.5s ease, left 0.5s ease;
+}
+.navbar.active .nav-link:hover:after {
+  width: 100%;
+  left: 0;
+  background: #555;
+}
+.nav-link:hover {
+  opacity: 1;
+}
 .navbar.active .nav-link:hover,
 .navbar.active .nav-link:focus {
   color: #555;
