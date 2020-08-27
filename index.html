@@ -16,7 +16,6 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="asset/css/style.css" />
-    
 
     <!-- Google fonts-->
     <link
@@ -35,13 +34,13 @@
       type="text/css"
     />
 
-    <title>Bayu Damar Jati</title>
+    <title>Hello, world!</title>
   </head>
   <body>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container">
-        <a class="navbar-brand text-warning" href="#">Bayu Damar Jati</a>
+        <a class="navbar-brand text-kuning" href="#">Bayu Damar Jati</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -55,13 +54,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link" href="#">Home</a>
-            <a class="nav-item nav-link" href="#aboutMe">About Me</a>
-            <a class="nav-item nav-link" href="#">Ability</a>
-            <a class="nav-item nav-link" href="#">Project</a>
-            <a class="nav-item nav-link" href="#">Certification</a>
-            <a class="nav-item nav-link" href="#">Interest</a>
-            <a class="nav-item nav-link" href="#">Contact</a>
+            <a class="nav-item nav-link fade-up" href="#">Home</a>
+            <a class="nav-item nav-link fade-up" href="#aboutMe">About Me</a>
+            <a class="nav-item nav-link fade-up" href="#">Ability</a>
+            <a class="nav-item nav-link fade-up" href="#">Project</a>
+            <a class="nav-item nav-link fade-up" href="#">Certification</a>
+            <a class="nav-item nav-link fade-up" href="#">Interest</a>
+            <a class="nav-item nav-link fade-up" href="#">Contact</a>
           </div>
         </div>
       </div>
@@ -72,14 +71,21 @@
       <div class="jumbotron jumbotron-fluid">
         <div class="container">
           <div class="header-heading mb-1">Hai, I'm Bayu</div>
-          <div class="header-subheading mb-3">I'm a Web Programmer</div>
+          <div class="header-subheading mb-3">
+            I'm a 
+            <span
+              class="txt-rotate text-kuning font-weight-bold"
+              data-period="2000"
+              data-rotate='[ "Web Programmer.", "Football Fans.", "Music Lover.", "Lifelong Learner."]'
+            ></span>
+          </div>
           <button
             type="button"
-            class="btn btn-warning text-white montserrat mr-3"
+            class="btn btn-kuning text-white montserrat mr-3"
           >
             Download CV
           </button>
-          <button type="button" class="btn btn-warning text-white montserrat">
+          <button type="button" class="btn btn-kuning text-white montserrat">
             Contact Me
           </button>
         </div>
@@ -180,6 +186,7 @@
     ></script>
 
     <script>
+      // SCROLL NAVBAR
       $(function () {
         $(window).on("scroll", function () {
           if ($(window).scrollTop() > 10) {
@@ -189,6 +196,67 @@
           }
         });
       });
+
+      // TYPING EFFECT
+      var TxtRotate = function (el, toRotate, period) {
+        this.toRotate = toRotate;
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = "";
+        this.tick();
+        this.isDeleting = false;
+      };
+
+      TxtRotate.prototype.tick = function () {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+
+        if (this.isDeleting) {
+          this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+          this.txt = fullTxt.substring(0, this.txt.length + 1);
+        }
+
+        this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
+
+        var that = this;
+        var delta = 300 - Math.random() * 100;
+
+        if (this.isDeleting) {
+          delta /= 2;
+        }
+
+        if (!this.isDeleting && this.txt === fullTxt) {
+          delta = this.period;
+          this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === "") {
+          this.isDeleting = false;
+          this.loopNum++;
+          delta = 500;
+        }
+
+        setTimeout(function () {
+          that.tick();
+        }, delta);
+      };
+
+      window.onload = function () {
+        var elements = document.getElementsByClassName("txt-rotate");
+        for (var i = 0; i < elements.length; i++) {
+          var toRotate = elements[i].getAttribute("data-rotate");
+          var period = elements[i].getAttribute("data-period");
+          if (toRotate) {
+            new TxtRotate(elements[i], JSON.parse(toRotate), period);
+          }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML =
+          ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+        document.body.appendChild(css);
+      };
     </script>
   </body>
 </html>
