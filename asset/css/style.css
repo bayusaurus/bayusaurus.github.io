@@ -38,18 +38,7 @@
   text-transform: uppercase;
 }
 .nav-link:after {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  height: 3px;
-  width: 0;
-  background: transparent;
-}
-
-.nav-link:after {
-  transition: width .5s ease, background-color .5s ease, left .5s ease;
+  transition: width 0.5s ease, background-color 0.5s ease, left 0.5s ease;
 }
 
 .nav-link:hover:after {
@@ -57,7 +46,7 @@
   left: 0;
   background: #fff;
 }
-.nav-link:hover{
+.nav-link:hover {
   opacity: 1;
 }
 .navbar {
@@ -73,22 +62,22 @@
 
 /* Change navbar styling on scroll */
 .navbar.active {
-    background: #fff;
-    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.active .nav-link {
-    color: #555;
+  color: #555;
 }
 
 .navbar.active .nav-link:hover,
 .navbar.active .nav-link:focus {
-    color: #555;
-    text-decoration: none;
+  color: #555;
+  text-decoration: none;
 }
 
 .navbar.active .navbar-brand {
-    color: #555;
+  color: #555;
 }
 
 /* ================ HEADER =====================*/
@@ -116,44 +105,54 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-  /* ================ UTILITY=====================*/
-.btn{
-  font-size: 22px;
+/* ================ UTILITY=====================*/
+.btn {
+  font-size: 20px;
 }
-.bg-kuning{
-  background-color: #ECE98E;
+.bg-kuning {
+  background-color: #ece98e;
 }
-.btn-kuning{
-  background-color: #ECE98E;
+.btn-kuning {
+  background-color: #ece98e;
 }
-.btn-kuning:hover{
-  background-color:#f0ad4e;
+.btn-kuning:hover {
+  background-color: #f0ad4e;
 }
-.text-kuning{
-  color: #ECE98E;
+.text-kuning {
+  color: #ece98e;
 }
-.text-kuning:hover{
+.text-kuning:hover {
   color: #f0ad4e;
 }
 
-
-.bg-biru{
-  background-color: #9FD2E5;
+.bg-biru {
+  background-color: #9fd2e5;
 }
-.btn-biru{
-  background-color: #9FD2E5;
+.btn-biru {
+  background-color: #9fd2e5;
 }
-.btn-biru:hover{
+.btn-biru:hover {
   background-color: #0275d8;
 }
-.text-biru{
-  color: #9FD2E5;
+.text-biru {
+  color: #9fd2e5;
 }
-.text-biru:hover{
+.text-biru:hover {
   color: #0275d8;
 }
-
-
+/* Change navbar styling on large viewports */
+@media (min-width: 992px) {
+  .nav-link:after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 3px;
+    width: 0;
+    background: transparent;
+  }
+}
 /* Change navbar styling on small viewports */
 @media (max-width: 991.98px) {
   /* ================ NAVBAR =====================*/
@@ -165,5 +164,26 @@
     text-align: center;
     color: #555;
   }
-  
+  .jumbotron {
+    padding-top: 11rem;
+    padding-bottom: 8rem;
+    background-image: url("../image/bayusaurus.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+  }
+  .header-heading {
+    font-size: 40px;
+    font-style: italic;
+    font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
+  .header-subheading {
+    font-size: 30px;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  }
 }
