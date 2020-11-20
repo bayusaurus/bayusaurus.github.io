@@ -1,371 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="asset/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
 
-    <!-- Google fonts-->
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
-      rel="stylesheet"
-      type="text/css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-      crossorigin="anonymous"
-    />
-    <link rel="icon" href="asset/image/favicon.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Roboto:wght@100&display=swap" rel="stylesheet" />
+    <style>
+        .bg-darkblue {
+            background-color: #29475f;
+        }
+        
+        .text-roboto {
+            font-family: roboto;
+        }
+        /* body {
+        background-color: #7ecefd;
+      } */
+        
+        .navbar-brand {
+            font-family: lobster;
+        }
+        
+        .navbar-collapse .nav-text {
+            display: none;
+        }
+        
+        .navbar-nav>.nav-item>.nav-link {
+            font-family: roboto;
+            font-weight: 500;
+        }
+        
+        .show>.navbar-nav>.nav-item>.nav-link>.nav-text {
+            display: inline;
+        }
+        /* Change navbar styling on scroll */
+        
+        .fixed-top.active {
+            background: #fff;
+        }
+        
+        .fixed-top {
+            -webkit-transition: background-color 0.5s ease-in-out;
+            -moz-transition: background-color 0.5s ease-in-out;
+            -ms-transition: background-color 0.5s ease-in-out;
+            -o-transition: background-color 0.5s ease-in-out;
+            transition: background-color 0.5s ease-in-out;
+        }
+        
+        .navbar {
+            -webkit-transition: background-color 0.5s ease-in-out;
+            -moz-transition: background-color 0.5s ease-in-out;
+            -ms-transition: background-color 0.5s ease-in-out;
+            -o-transition: background-color 0.5s ease-in-out;
+            transition: background-color 0.5s ease-in-out;
+        }
+        
+        .navbar.active {
+            background: #fff;
+        }
+        
+        .navbar.active>.collapse>.navbar-nav>.nav-item>.nav-link {
+            color: #555;
+        }
+        
+        .navbar.active>.navbar-toggler {
+            color: #555;
+        }
+        
+        .navbar.active .nav-link:after {
+            transition: width 0.5s ease, background-color 0.5s ease, left 0.5s ease;
+        }
+        
+        .navbar.active .nav-link:hover:after {
+            width: 100%;
+            left: 0;
+            background: #555;
+        }
+        
+        .nav-link:hover {
+            opacity: 1;
+        }
+        
+        .navbar.active .nav-link:hover,
+        .navbar.active .nav-link:focus {
+            color: #555;
+            text-decoration: none;
+        }
+        
+        .navbar.active .navbar-brand {
+            color: #555;
+        }
+        
+        .top {
+            height: 60vh;
+            background-color: #29475f;
+        }
+        
+        .main {
+            position: relative;
+            margin-top: -30vh;
+        }
+        
+        .main h3 {
+            font-family: roboto;
+            font-weight: 600;
+            color: #2f88a7;
+        }
+        
+        .main .small {
+            font-family: roboto;
+            font-weight: 600;
+            color: #2f88a7;
+        }
+        
+        .profile-img {
+            position: relative;
+            margin-top: -100px;
+        }
+        
+        blockquote p {
+            font-family: roboto;
+        }
+        
+        .social a {
+            font-size: 25px;
+            color: gray !important;
+        }
+        
+        .card-link {
+            color: #2f88a7;
+            font-family: roboto;
+            font-weight: 600;
+        }
+        
+        .nav-pills>.nav-item>.active {
+            background-color: #7ecefd;
+        }
+        
+        .card-link:hover:not(.active) {
+            background-color: rgba(47, 136, 167, 0.2) !important;
+            color: #2f88a7;
+        }
+        
+        .cover img {
+            width: 100%;
+            /* or any custom size */
+            height: 100%;
+            object-fit: cover;
+        }
+        /* unvisited link */
+        
+        a:link {
+            text-decoration: none;
+        }
+        /* visited link */
+        
+        a:visited {
+            text-decoration: none;
+        }
+        /* mouse over link */
+        
+        a:hover {
+            text-decoration: none;
+        }
+        /* selected link */
+        
+        a:active {
+            text-decoration: none;
+        }
+    </style>
+    <title>Bayu Damar Jati</title>
+</head>
 
-    <title>BAYU DAMAR JATI</title>
-  </head>
-
-  <body>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-      <div class="container">
-        <a class="navbar-brand text-kuning" href="#">Bayu Damar Jati</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNavAltMarkup"
-          aria-controls="navbarNavAltMarkup"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-          onclick="myFunction(this)"
-        >
-          <div class="bar1"></div>
-          <div class="bar2"></div>
-          <div class="bar3"></div>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link fade-up" href="#home">Home</a>
-            <a class="nav-item nav-link fade-up" href="#aboutMe">About Me</a>
-            <a class="nav-item nav-link fade-up" href="#ability">What I Do</a>
-            <a class="nav-item nav-link fade-up" href="#project">Project</a>
-            <a class="nav-item nav-link fade-up" href="#certification"
-              >Certification</a
-            >
-            <a class="nav-item nav-link fade-up" href="#interest">Interest</a>
-            <a class="nav-item nav-link fade-up" href="#contact">Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- HEADER -->
-    <header>
-      <div class="jumbotron jumbotron-fluid" id="home">
+<body>
+    <div class="bg-darkblue fixed-top">
         <div class="container">
-          <div class="header-heading mb-1">Hai, I'm Bayu</div>
-          <div class="header-subheading mb-3">
-            I'm a
-            <span
-              class="txt-rotate text-kuning font-weight-bold"
-              data-period="2000"
-              data-rotate='[ "Web Programmer.", "Football Fans.", "Music Lover.", "Lifelong Learner."]'
-            ></span>
-          </div>
-          <button
-            type="button"
-            class="btn btn-kuning text-white montserrat mr-3"
-          >
-            Download CV
-          </button>
-          <button type="button" class="btn btn-kuning text-white montserrat">
-            Contact Me
-          </button>
-        </div>
-      </div>
-    </header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-darkblue">
+                <a class="navbar-brand" href="#">Bayu Damar Jati</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fa fa-bars"></i>
+                </button>
 
-    <!-- ABOUT ME -->
-    <!-- <div class="container-fluid py-5 text-center" id="aboutMe">
-      <div class="container">
-        <h2 class="section-heading">ABOUT ME</h2>
-        <h5 class="section-subheading text-muted">
-          Here's a little thing about me.
-        </h5>
-        <div class="row justify-content-center py-3">
-          <div class="col-md-12 rounded bg-biru">
-            <div class="row">
-              <div class="col-sm-6 card-photo-profile">
-                <div class="py-5" style="height: 100%; width: 100%">
-                  <table
-                    style="
-                      height: 100%;
-                      width: 100%;
-                      position: relative;
-                      z-index: 3;
-                    "
-                  >
-                    <tbody>
-                      <tr>
-                        <td class="align-bottom">
-                          <h2
-                            class="section-heading text-white font-weight-bold"
-                          >
-                            BAYU DAMAR JATI
-                          </h2>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#" target="_blank"><i class="fa fa-cloud-download"></i> Download CV </a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://www.behance.net/bayudamar?tracking_source=search_users_recommended%7Cbayu%20damar" target="_blank"><i class="fa fa-behance"></i><span class="nav-text"> Behance</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://github.com/bayusaurus" target="_blank"><i class="fa fa-github"></i><span class="nav-text"> Github</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://www.linkedin.com/in/bayudamar/" target="_blank"><i class="fa fa-linkedin"></i><span class="nav-text"> Linkedin</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="https://www.instagram.com/bayusaurus/" target="_blank"><i class="fa fa-instagram"></i><span class="nav-text"> Instagram</span></a>
+                        </li>
+                    </ul>
                 </div>
-              </div>
-              <div
-                class="col-sm-6 justify-content-left text-white py-3 px-5 text-left"
-              >
-                <h2 class="roboto text-white text-center">Personal Info</h2>
-                <hr />
-                <div>
-                  <table style="height: 100%; width: 100%" class="mx-3">
-                    <tbody>
-                      <tr>
-                        <td><h5 class="Droid">Name</h5></td>
-                        <td><h5 class="Droid">Bayu Damar Jati</h5></td>
-                      </tr>
-                      <tr>
-                        <td><h5 class="Droid">Age</h5></td>
-                        <td><h5 class="Droid">23 years</h5></td>
-                      </tr>
-                      <tr>
-                        <td><h5 class="Droid">Location</h5></td>
-                        <td><h5 class="Droid">Java, Indonesia</h5></td>
-                      </tr>
-                      <tr>
-                        <td><h5 class="Droid">Email</h5></td>
-                        <td><h5 class="Droid">bayudamar123@gmail.com</h5></td>
-                      </tr>
-                    </tbody>
-                  </table>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container-fluid top"></div>
+
+    <div class="container main mb-5">
+        <div class="card shadow-lg mb-5 bg-white rounded">
+            <div class="text-center">
+                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE8BJ13KNPHIg/profile-displayphoto-shrink_200_200/0?e=1611187200&v=beta&t=PqzLfj6ZMihERthTfFo6r7MXQ2Y4wqapg_yadqVN6jk" class="rounded-circle profile-img mx-auto d-block" alt="Cinque Terre" width="200"
+                    height="200" />
+                <h3 class="mt-4">BAYU DAMAR JATI</h3>
+                <p class="small my-3">WEB PROGRAMMER</p>
+
+                <div class="social text-muted text-decoration-none">
+                    <span class="mr-4"><a href="https://www.behance.net/bayudamar?tracking_source=search_users_recommended%7Cbayu%20damar" target="_blank"><i class="fa fa-behance" aria-hidden="true"></i></a></span>
+                    <span class="mr-4"><a href="https://github.com/bayusaurus" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></span>
+                    <span class="mr-4"><a href="https://www.linkedin.com/in/bayudamar/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></span>
+                    <span class=""><a href="https://www.instagram.com/bayusaurus/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></span>
                 </div>
-              </div>
+
+                <div class="d-flex justify-content-center">
+                    <div class="col-md-8 col-sm-8">
+                        <blockquote class="container text-center mt-3 mb-3">
+                            <p class="mb-0 text-muted">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque aperiam saepe rerum tempora eum nulla illum. Officiis nam, labore aliquam ullam porro rerum, commodi dolorum, eos modi exercitationem et vero.
+                            </p>
+                        </blockquote>
+                    </div>
+                </div>
             </div>
-          </div>
+
+            <div class="row d-flex justify-content-center mb-3">
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link card-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            <div class="px-2 pt-3 pb-1">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <i class="fa fa-user" aria-hidden="true" style="font-size: 40px"></i>
+                                </div>
+                                PROFILE
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link card-link" id="pills-contact-tab" data-toggle="pill" href="#pills-skills" role="tab" aria-controls="pills-contact" aria-selected="false">
+                            <div class="px-2 pt-3 pb-1">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <i class="fa fa-cog" aria-hidden="true" style="font-size: 40px"></i>
+                                </div>
+                                SKILLS
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link card-link" id="pills-home-tab" data-toggle="pill" href="#pills-likes" role="tab" aria-controls="pills-profile" aria-selected="false">
+                            <div class="px-2 pt-3 pb-1">
+                                <div class="d-flex justify-content-center mb-3">
+                                    <i class="fa fa-heart" aria-hidden="true" style="font-size: 40px"></i>
+                                </div>
+                                LIKES
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="d-flex justify-content-center ">
+                <div class="row col-md-12">
+                    <div class="container">
+                        <div class="tab-content mb-5" id="pills-tabContent">
+
+                            <div class="tab-pane fade show active col-md-12" id="pills-profile" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="d-flex justify-content-center ">
+                                    <div class="col-md-6 bg-white shadow-lg rounded overflow-hidden ">
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col-md-6 d-flex justify-content-center mt-4">
+                                                <img src="https://media-exp1.licdn.com/dms/image/C5603AQE8BJ13KNPHIg/profile-displayphoto-shrink_200_200/0?e=1611187200&v=beta&t=PqzLfj6ZMihERthTfFo6r7MXQ2Y4wqapg_yadqVN6jk" alt="..." width="130" class="rounded mb-2">
+                                            </div>
+                                            <div class="col-md-6 my-auto text-center" style="margin-top: auto;  margin-bottom: auto;">
+                                                <h4 class="text-dark mt-4 text-dark">Bayu Damar Jati</h4>
+                                                <p class="small text-muted mb-2"><i class="fa fa-envelope"></i> bayudamar123@gmail.com</p>
+                                                <p class="small mb-4"><i class="fa fa-map-marker"></i> Wonogiri, Jawa Tengah</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <hr>
+                                        </div>
+                                        <div class="px-4 py-3 mb-3 col-lg-12 text-dark">
+                                            <h5 class="mb-2"><i class="fa fa-id-card"></i> ABOUT</h5>
+                                            <div class="p-4 rounded shadow bg-light">
+                                                <p class="font-italic mb-0">Web Programmer</p>
+                                                <p class="font-italic mb-0">June 24th, 1997</p>
+                                                <p class="font-italic mb-0">bayudamar123@gmail.com</p>
+                                                <p class="font-italic mb-0">Lives in Wonogiri, Central Java</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-4 py-3 mb-3 text-dark">
+                                            <h5 class="mb-2"><i class="fa fa-graduation-cap"></i> EDUCATION</h5>
+                                            <div class="p-4 rounded shadow bg-light">
+                                                <p class="font-italic mb-0"><strong>SD N 1 PURWOREJO</strong></p><br>
+                                                <p class="font-italic mb-0"><strong>SMP N 6 Wonogiri</strong></p><br>
+                                                <p class="font-italic mb-0"><strong>SMK N 2 WONOGIRI</strong></p>
+                                                <p class="font-italic mb-0">(Teknik Pemesinan)</p><br>
+                                                <p class="font-italic mb-0"><strong>UNIVERSITAS TEKNOLOGI YOGYAKARTA</strong></p>
+                                                <p class="font-italic mb-0">(Teknik Informatika)</p>
+                                            </div>
+                                        </div>
+                                        <div class="px-4 py-3 mb-5 text-dark">
+                                            <h5 class="mb-2"><i class="fa fa-certificate"></i> CERTIFICATE</h5>
+                                            <div class="p-4 rounded shadow bg-light">
+                                                <p class="font-italic mb-0"><strong>JUNIOR PROGRAMMER</strong></p>
+                                                <p class="font-italic mb-0">Sertifikat Profesi</p>
+                                                <p class="font-italic mb-0">Badan Nasional Sertifikasi Profesi</p><br>
+                                                <p class="font-italic mb-0"><strong>3D CHARACTER DESIGN</strong></p>
+                                                <p class="font-italic mb-0">Sertifikat Profesi</p>
+                                                <p class="font-italic mb-0">Badan Nasional Sertifikasi Profesi</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade col-md-12" id="pills-skills" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="d-flex justify-content-center ">
+                                    <div class="col-md-6 bg-white shadow-lg rounded overflow-hidden ">
+                                        <div class="text-center mt-4">
+                                            <h5 class="roboto text-dark"><strong>SKILLS</strong></h5>
+                                        </div>
+
+                                        <div class="container">
+                                            <hr>
+                                        </div>
+
+                                        <div class="px-4 py-3 mb-5 text-dark">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-code"></i> PROGRAMMING</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/php.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/laravel.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/js.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/css.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/bootstrap.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/html.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/jquery.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/mysql.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="px-4 py-3 mb-5 text-dark cover">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-paint-brush"></i> ART</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/griezmann.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/januzaj.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/taehyung.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/taehyung2.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/jjy.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/bdj.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/jojo.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/flat.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="px-4 py-3 mb-5 text-dark">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-desktop"></i> Software I Use</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/windows-10-icon-logo-5BC5C69712-seeklogo.com.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/android.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/vscode.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/office.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/ps.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/corel.png" alt="..." class="rounded mb-2 img-fluid" style="max-height: 100px">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade col-md-12" id="pills-likes" role="tabpanel" aria-labelledby="pills-home-tab">
+                                <div class="d-flex justify-content-center ">
+                                    <div class="col-md-6 bg-white shadow-lg rounded overflow-hidden ">
+                                        <div class="text-center mt-4">
+                                            <h5 class="roboto text-dark"><strong>STUFF I LIKE THE MOST</strong></h5>
+                                        </div>
+
+                                        <div class="container">
+                                            <hr>
+                                        </div>
+
+                                        <div class="px-4 py-3 mb-3 text-dark cover">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-futbol-o"></i> FOOTBALL</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/mufc.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/mufc2.jpeg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="px-4 py-3 mb-3 text-dark cover">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-music"></i> MUSIC</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/greenday.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/thestrokes.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="px-4 py-3 mb-3 text-dark cover">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-film"></i> MOVIE</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/parasite.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/snk.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="px-4 py-3 mb-3 text-dark cover">
+                                            <h5 class="mb-2 text-center"><i class="fa fa-globe"></i> TRAVEL</h5>
+                                            <hr>
+                                            <div class="row">
+
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/machupicchu.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+                                                <div class="col-md-6 col-sm-6 col-lg-6 d-flex justify-content-center px-2 py-3">
+                                                    <img src="img/snow.jpg" alt="..." class="rounded mb-2 img-fluid" style="max-height: 300px">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div> -->
+    </div>
 
-    <!-- ABILITY -->
-    <!-- <div class="container-fluid py-5 text-center bg-biru text-white">
-      <div class="container">
-        <h2 class="section-heading">WHAT I DO</h2>
-        <h5 class="section-subheading mb-3">
-          I always learn about Web Programming and editing stuff.
-        </h5>
-        <div class="row">
-          <div class="col-md-6 py-3 px-3 bg-white text-biru">
-            <h4>WEB PROGRAMMING</h4>
-          </div>
-          <div class="col-md-6 py-3 px-3">
-            <h4>EDITING STUFF</h4>
-          </div>
+    <!-- Footer -->
+    <footer class="sticky-footer bg-darkblue">
+        <div class="container py-3">
+            <div class="text-white text-center my-auto">
+                <span>Copyright &copy; Bayu Damar Jati 2020</span>
+            </div>
         </div>
-      </div>
-    </div> -->
+    </footer>
+    <!-- End of Footer -->
 
-    <!-- PROJECT -->
-    <!-- <div class="container-fluid py-5 text-center">
-      <div class="container">
-        <h2 class="section-heading">PROJECT</h2>
-        <h5 class="section-subheading mb-3">
-          I always learn about Web Programming and editing stuff.
-        </h5>
-        <div class="row">
-          <div class="col-md-6 py-3 px-3">
-            <h4>WEB PROGRAMMING</h4>
-          </div>
-          <div class="col-md-6 py-3 px-3">
-            <h4>EDITING STUFF</h4>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- CERTIFICATION -->
-    <!-- <div class="container-fluid py-5 text-center bg-biru text-white">
-      <div class="container">
-        <h2 class="section-heading">CERTIFICATION</h2>
-        <h5 class="section-subheading mb-3">
-          I always learn about Web Programming and editing stuff.
-        </h5>
-        <div class="row">
-          <div class="col-md-6 py-3 px-3 bg-white text-biru">
-            <h4>WEB PROGRAMMING</h4>
-          </div>
-          <div class="col-md-6 py-3 px-3">
-            <h4>EDITING STUFF</h4>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    <!-- INTEREST -->
-    <!-- <div class="container-fluid py-5 text-center">
-      <div class="container">
-        <h2 class="section-heading">INTEREST</h2>
-        <h5 class="section-subheading mb-3">
-          I always learn about Web Programming and editing stuff.
-        </h5>
-        <div class="row">
-          <div class="col-md-6 py-3 px-3">
-            <h4>WEB PROGRAMMING</h4>
-          </div>
-          <div class="col-md-6 py-3 px-3">
-            <h4>EDITING STUFF</h4>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
 
-    <!-- CONTACT -->
-    <!-- <div class="container-fluid py-5 text-center bg-biru text-white">
-      <div class="container">
-        <h2 class="section-heading">CONTACT</h2>
-        <h5 class="section-subheading mb-3">
-          I always learn about Web Programming and editing stuff.
-        </h5>
-        <div class="row">
-          <div class="col-md-6 py-3 px-3 bg-white text-biru">
-            <h4>WEB PROGRAMMING</h4>
-          </div>
-          <div class="col-md-6 py-3 px-3">
-            <h4>EDITING STUFF</h4>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- FOOTER -->
-    <!-- <footer>
-      <div class="container-fluid py-5 text-center bg-biru text-white">
-        <div class="container">
-          <h2 class="section-heading">FOOTER</h2>
-        </div>
-      </div>
-    </footer> -->
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
-
+    <!-- Custom JS for background color on scrolling -->
     <script>
-      // HAMBURGER
-      function myFunction(x) {
-        x.classList.toggle("change");
-      }
-      // SCROLL NAVBAR
-      $(function () {
-        $(window).on("scroll", function () {
-          if ($(window).scrollTop() > 10) {
-            $(".navbar").addClass("active");
-          } else {
-            $(".navbar").removeClass("active");
-          }
+        $(function() {
+            $(window).on("scroll", function() {
+                if ($(window).scrollTop() > 10) {
+                    $(".navbar").addClass("active");
+                    $(".fixed-top").addClass("active");
+                } else {
+                    $(".navbar").removeClass("active");
+                    $(".fixed-top").removeClass("active");
+                }
+            });
         });
-      });
-
-      // TYPING EFFECT
-      var TxtRotate = function (el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = "";
-        this.tick();
-        this.isDeleting = false;
-      };
-
-      TxtRotate.prototype.tick = function () {
-        var i = this.loopNum % this.toRotate.length;
-        var fullTxt = this.toRotate[i];
-
-        if (this.isDeleting) {
-          this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-          this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
-
-        this.el.innerHTML = '<span class="wrap">' + this.txt + "</span>";
-
-        var that = this;
-        var delta = 300 - Math.random() * 100;
-
-        if (this.isDeleting) {
-          delta /= 2;
-        }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-          delta = this.period;
-          this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === "") {
-          this.isDeleting = false;
-          this.loopNum++;
-          delta = 500;
-        }
-
-        setTimeout(function () {
-          that.tick();
-        }, delta);
-      };
-
-      window.onload = function () {
-        var elements = document.getElementsByClassName("txt-rotate");
-        for (var i = 0; i < elements.length; i++) {
-          var toRotate = elements[i].getAttribute("data-rotate");
-          var period = elements[i].getAttribute("data-period");
-          if (toRotate) {
-            new TxtRotate(elements[i], JSON.parse(toRotate), period);
-          }
-        }
-        // INJECT CSS
-        var css = document.createElement("style");
-        css.type = "text/css";
-        css.innerHTML =
-          ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-        document.body.appendChild(css);
-      };
     </script>
-  </body>
+
+</body>
+
 </html>
